@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: interview-ai-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        scope: build,runtime
+      - key: GOOGLE_GENAI_API_KEY
+        scope: build,runtime
+      - key: JWT_SECRET
+        scope: build,runtime
+      - key: FRONTEND_URL
+        scope: build,runtime
