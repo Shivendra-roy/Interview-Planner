@@ -125,20 +125,25 @@ async function logoutUserController(req, res) {
  * @access private
  */
 async function getMeController(req, res) {
+    try
+    {
+        const user = await userModel.findById(req.user.id)
 
-    const user = await userModel.findById(req.user.id)
 
 
-
-    res.status(200).json({
-        message: "User details fetched successfully",
-        user: {
-            id: user._id,
-            username: user.username,
-            email: user.email
-        }
-    })
-
+        res.status(200).json({
+            message: "User details fetched successfully",
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email
+            }
+        })
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
 }
 
 
