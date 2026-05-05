@@ -1,4 +1,5 @@
 {
+  "buildCommand": "cd Frontend && npm install --include=dev && npm run build",
   "outputDirectory": "Frontend/dist",
   "devCommand": "cd Frontend && npm run dev",
   "rewrites": [
